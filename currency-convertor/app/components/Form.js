@@ -1,3 +1,4 @@
+
 // importing useState, useEffect for fetching data
 "use client";
 import { useState } from "react";
@@ -25,16 +26,19 @@ export default function Form(props) {
     setValue(e.target.value);
   };
   // a function that will handle the currency convertion
+
   return (
     <form>
       <label>Add amount £ </label>
       <input></input>
+
       <select
         name="currency"
         id="currency"
         value={currencySelection}
         onChange={handleChange}
       >
+
         <option value="euro">EUR -Euro</option>
         <option value="us dollar">USD -US dollar</option>
         <option value="canadian dollar">CAD -Canadian dollar</option>
