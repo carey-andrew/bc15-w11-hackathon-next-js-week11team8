@@ -1,7 +1,6 @@
-
-export default function Output({props}){
+export default function Output({ homeCurrency, holidayCurrency, conversionRate, expectedTotal}){
     // we need to check that this is the correct order that the information is coming to us in.
-    const {homeCurrency, holidayCurrency, conversionRate, expectedTotal} = props
+    // const {homeCurrency = 1, holidayCurrency = 42, conversionRate = 1.7, expectedTotal = 588} = props
 
     return (
         <>
@@ -13,10 +12,10 @@ export default function Output({props}){
     )
 }
 
-// default props for testing
+// // default props for testing
 Output.defaultProps = {
     homeCurrency: 1,
     holidayCurrency: 2,
-    conversionRate: 'dave',
+    conversionRate: 1.98,
     expectedTotal: 3000
 }
