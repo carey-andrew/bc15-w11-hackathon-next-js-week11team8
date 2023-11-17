@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 //import { useClient } from "next/data-client";
 import { initialCurrValue } from "../page.js";
+import FetchRequest from "./API.js";
 
 const BASE_URL =
   "https://v6.exchangerate-api.com/v6/1422c9c7818ee8bbfbd312ee/latest/GBP";
@@ -42,9 +43,9 @@ export default function Form(props) {
 
   // a function that will handle the currency convertion
 
-  function converter() {
+  async function converter() {
     // TO BE replaced with API function
-    const conversionRate = 1.5;
+    const conversionRate = await FetchRequest(currencySelection);
     let convertedTotal = handleNumberChange;
     convertedTotal = input * conversionRate;
     console.log(`convertedTotal: ${convertedTotal}`);
