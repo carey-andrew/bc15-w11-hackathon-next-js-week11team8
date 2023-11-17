@@ -1,6 +1,6 @@
 // importing useState, useEffect for fetching data
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 //import { useClient } from "next/data-client";
 import { initialCurrValue } from "../page.js";
 
@@ -43,12 +43,20 @@ export default function Form(props) {
   // a function that will handle the currency convertion
 
   function converter() {
+    // TO BE replaced with API function
     const conversionRate = 1.5;
     let convertedTotal = handleNumberChange;
-    convertedTotal = convertedTotal * conversionRate;
-    console.log(convertedTotal);
+    convertedTotal = input * conversionRate;
+    console.log(`convertedTotal: ${convertedTotal}`);
+    setConversion(convertedTotal);
   }
-  converter();
+
+  // call the convertor function whenever the input or currency selection changes
+  useEffect(() => {
+    converter();
+    // feeds the input number and the conversion rate into the function
+  }, [input, currencySelection]);
+
   return (
     <form>
       <label>Add amount £ </label>
