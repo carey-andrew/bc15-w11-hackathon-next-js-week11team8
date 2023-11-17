@@ -14,8 +14,8 @@ export default function Output({ homeCurrency, holidayCurrency, conversionRate, 
 
 // // default props for testing
 Output.defaultProps = {
-    homeCurrency: 1,
-    holidayCurrency: 2,
+    homeCurrency: 'GBP',
+    holidayCurrency: 'EUR',
     conversionRate: 1.98,
     expectedTotal: 3000
 }
