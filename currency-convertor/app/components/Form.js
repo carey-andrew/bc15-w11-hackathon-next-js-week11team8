@@ -1,4 +1,3 @@
-
 // importing useState, useEffect for fetching data
 "use client";
 import { useState } from "react";
@@ -14,6 +13,8 @@ export default function Form(props) {
   // initial state of currency is EUR
   const [currencySelection, setCurrencySelection] = useState("EUR -Euro");
 
+  const [conversion, setConversion] = useState(0);
+
   // useEffect(() => {
   //   fetch(BASE_URL)
   //     .then((res) => res.json())
@@ -21,29 +22,49 @@ export default function Form(props) {
   //       console.log(data);
   //     });
   // }, []);
-  // a function that will handle the input change and the currency selection
-  const handleChange = (e) => {
-    setValue(e.target.value);
+  // a function that will handle  the currency selection
+  const handleCurrencyChange = (e) => {
+    const selectedValue = e.target.value;
+    setCurrencySelection(selectedValue);
+    console.log(selectedValue);
+    // console.log(`Target:${target}`);
+    // console.log(`Value:${value}`);
   };
+
+  // a function that will handle the number input
+  const handleNumberChange = (e) => {
+    const selectedValue = e.target.value;
+    setInput(selectedValue);
+    console.log(selectedValue);
+    // console.log(`Target:${target}`);
+    // console.log(`Value:${value}`);
+  };
+
   // a function that will handle the currency convertion
 
+  function converter() {
+    const conversionRate = 1.5;
+    let convertedTotal = handleNumberChange;
+    convertedTotal = convertedTotal * conversionRate;
+    console.log(convertedTotal);
+  }
+  converter();
   return (
     <form>
       <label>Add amount £ </label>
-      <input></input>
+      <input type="number" min="0" onChange={handleNumberChange}></input>
 
       <select
         name="currency"
         id="currency"
         value={currencySelection}
-        onChange={handleChange}
+        onChange={handleCurrencyChange}
       >
-
-        <option value="euro">EUR -Euro</option>
-        <option value="us dollar">USD -US dollar</option>
-        <option value="canadian dollar">CAD -Canadian dollar</option>
-        <option value="australian dollar">AUD -Australian dollar</option>
-        <option value="indian rupee">INR -Indian rupee</option>
+        <option value="EUR">EUR -Euro</option>
+        <option value="USD">USD -US dollar</option>
+        <option value="CAD">CAD -Canadian dollar</option>
+        <option value="AUD">AUD -Australian dollar</option>
+        <option value="INR">INR -Indian rupee</option>
       </select>
     </form>
   );
