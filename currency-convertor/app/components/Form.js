@@ -43,6 +43,7 @@ export default function Form(props) {
   // a function that will handle the currency convertion
 
   function converter() {
+    // TO BE replaced with API function
     const conversionRate = 1.5;
     let convertedTotal = handleNumberChange;
     convertedTotal = input * conversionRate;
@@ -54,7 +55,7 @@ export default function Form(props) {
   useEffect(() => {
     converter();
     // feeds the input number and the conversion rate into the function
-  }, [input, currencySelection])
+  }, [input, currencySelection]);
 
   return (
     <form>
