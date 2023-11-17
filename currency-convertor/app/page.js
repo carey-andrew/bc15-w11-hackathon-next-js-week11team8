@@ -1,3 +1,4 @@
+//import { useClient } from "next/data-client";
 import styles from "./page.module.css";
 import Head from "next/head";
 import Header from "./components/Header";
