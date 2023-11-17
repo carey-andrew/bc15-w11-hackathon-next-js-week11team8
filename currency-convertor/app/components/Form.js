@@ -45,10 +45,14 @@ export default function Form(props) {
   function converter() {
     const conversionRate = 1.5;
     let convertedTotal = handleNumberChange;
-    convertedTotal = convertedTotal * conversionRate;
+    convertedTotal = input * conversionRate;
     console.log(convertedTotal);
+    setConversion(convertedTotal);
   }
-  converter();
+
+  // call the convertor function whenever the input or currency selection changes
+
+
   return (
     <form>
       <label>Add amount £ </label>
