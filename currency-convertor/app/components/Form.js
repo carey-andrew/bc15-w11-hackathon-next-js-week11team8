@@ -27,7 +27,7 @@ export default function Form(props) {
   const handleCurrencyChange = (e) => {
     const selectedValue = e.target.value;
     setCurrencySelection(selectedValue);
-    console.log(selectedValue);
+    console.log(`Currency to convert to: ${selectedValue}`);
     // console.log(`Target:${target}`);
     // console.log(`Value:${value}`);
   };
@@ -36,7 +36,7 @@ export default function Form(props) {
   const handleNumberChange = (e) => {
     const selectedValue = e.target.value;
     setInput(selectedValue);
-    console.log(selectedValue);
+    console.log(`Amount to convert is:${selectedValue}`);
     // console.log(`Target:${target}`);
     // console.log(`Value:${value}`);
   };
@@ -48,7 +48,7 @@ export default function Form(props) {
     const conversionRate = await FetchRequest(currencySelection);
     let convertedTotal = handleNumberChange;
     convertedTotal = input * conversionRate;
-    console.log(`convertedTotal: ${convertedTotal}`);
+    console.log(`Converted results: ${convertedTotal}`);
     setConversion(convertedTotal);
   }
 
